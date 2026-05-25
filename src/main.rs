@@ -1,4 +1,4 @@
-use rust_serializer_storage::{Storage, BorshSerializer, JsonSerializer, WincodeSerializer, Person};
+use rust_serializer_storage::{Storage, WincodeStorage, BorshSerializer, JsonSerializer, Person};
 
 fn main() {
     let person = Person { name: "David".to_string(), age: 55 };
@@ -15,7 +15,7 @@ fn main() {
     println!("JSON bytes:    {:?}", json_storage.data);
     println!("JSON loaded:    {:?}", json_storage.load().unwrap());
 
-    let mut wincode_storage = Storage::new(WincodeSerializer);
+    let mut wincode_storage = WincodeStorage::new();
     wincode_storage.save(&person).unwrap();
 
     println!("Wincode bytes:  {:?}", wincode_storage.data);

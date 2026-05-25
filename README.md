@@ -6,7 +6,7 @@ This project implements a generic Rust storage container that can save and load 
 
 - Borsh
 - JSON (`serde_json`)
-- Wincode-style serializer (currently backed by `bincode` in code)
+- Wincode-style serializer
 
 ## Objective
 

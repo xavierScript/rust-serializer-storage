@@ -3,7 +3,7 @@ pub mod storage;
 pub mod types;
 
 pub use serializer::{Serializer, BorshSerializer, JsonSerializer, WincodeSerializer};
-pub use storage::Storage;
+pub use storage::{Storage, WincodeStorage};
 pub use types::Person;
 
 #[cfg(test)]
@@ -38,7 +38,7 @@ mod tests {
     #[test]
     fn test_wincode_complete_flow() {
         let person = make_person();
-        let mut storage = Storage::new(WincodeSerializer);
+        let mut storage = WincodeStorage::new();
         storage.save(&person).unwrap();
         assert_eq!(storage.load().unwrap(), person);
     }
